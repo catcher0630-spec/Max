@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)http://127.0.0.1:8773/max-portfolio-site.html -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>年亮亮 Portfolio - UX &amp; AI Designer</title>
+<meta name="description" content="年亮亮 UX &amp; AI Designer portfolio: 龙湖超A APP, AI数字化-数字员工, 律所管理系统, 视觉设计与设计赋能。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; viewBox=&#39;0 0 64 64&#39;%3E%3Ccircle cx=&#39;24&#39; cy=&#39;32&#39; r=&#39;18&#39; fill=&#39;%23a8e63d&#39;/%3E%3Ccircle cx=&#39;40&#39; cy=&#39;32&#39; r=&#39;18&#39; fill=&#39;%234f8ff0&#39; fill-opacity=&#39;.9&#39;/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#04070d;
+  --bg-2:#090d14;
+  --ink:#e6edf7;
+  --muted:#9aa5ba;
+  --soft:#47516a;
+  --line:rgba(255,255,255,.09);
+  --line-2:rgba(255,255,255,.16);
+  --green:#a8e63d;
+  --blue:#4f8ff0;
+  --cyan:#37d6c5;
+  --rose:#ff6d8d;
+  --amber:#ffc857;
+  --shadow:0 24px 80px rgba(0,0,0,.42);
+  --nav-h:68px;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{
+  min-height:100%;
+  background:
+    radial-gradient(circle at 13% 9%,rgba(168,230,61,.16),transparent 25rem),
+    radial-gradient(circle at 82% 8%,rgba(52,123,214,.22),transparent 34rem),
+    linear-gradient(116deg,rgba(255,255,255,.05) 0%,transparent 19%,transparent 70%,rgba(90,151,184,.13) 100%),
+    linear-gradient(180deg,#02050a 0%,#08101a 46%,#03060b 100%);
+  color:var(--ink);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-weight:400;
+  overflow-x:hidden;
+  cursor:none;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-2;
+  background-image:
+    linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px);
+  background-size:64px 64px;
+  opacity:.86;
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.82),transparent 78%);
+}
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:50;
+  pointer-events:none;
+  opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+#splashCursor{
+  position:fixed;
+  inset:0;
+  z-index:60;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  mix-blend-mode:screen;
+  opacity:.72;
+}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit}
+button{color:inherit;background:transparent;border:0;cursor:pointer}
+img,svg{display:block;max-width:100%}
+::selection{background:rgba(168,230,61,.28);color:var(--ink)}
+@media (max-width:760px){body{cursor:auto}}
+@media (max-width:760px){#splashCursor{display:none}}
+
+#loader{
+  position:fixed;
+  inset:0;
+  z-index:2000;
+  display:grid;
+  place-items:center;
+  background:var(--bg);
+  transition:opacity .65s var(--ease),visibility .65s;
+}
+#loader.is-gone{opacity:0;visibility:hidden;pointer-events:none}
+.loader-box{display:grid;gap:18px;justify-items:center}
+.loader-name{font-weight:800;letter-spacing:.16em;font-size:14px}
+.loader-track{width:148px;height:1px;background:var(--line);overflow:hidden}
+.loader-fill{width:0;height:100%;background:linear-gradient(90deg,var(--green),var(--blue));animation:loadbar 1.28s var(--ease) forwards}
+.loader-num{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);font-size:11px;letter-spacing:.18em}
+@keyframes loadbar{0%{width:0}58%{width:68%}100%{width:100%}}
+
+#cursor{position:fixed;top:0;left:0;z-index:950;pointer-events:none;mix-blend-mode:exclusion}
+#cursor-dot,#cursor-ring{position:absolute;transform:translate(-50%,-50%);border-radius:50%}
+#cursor-dot{width:9px;height:9px;background:#fff;transition:width .24s var(--ease),height .24s var(--ease)}
+#cursor-ring{width:42px;height:42px;border:1px solid rgba(255,255,255,.48);transition:width .36s var(--ease),height .36s var(--ease),border-color .3s}
+body.is-hover #cursor-dot{width:46px;height:46px}
+body.is-hover #cursor-ring{width:0;height:0;border-color:transparent}
+@media (max-width:760px){#cursor{display:none}}
+
+#progress{position:fixed;top:0;left:0;right:0;height:2px;z-index:1200}
+#progress span{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--green),var(--cyan),var(--blue))}
+
+.wrap{width:min(1460px,calc(100% - clamp(40px,8vw,128px)));margin-inline:auto}
+section[id]{scroll-margin-top:calc(var(--nav-h) + 18px)}
+.section{position:relative;padding:clamp(82px,10vw,148px) 0;border-top:1px solid var(--line)}
+.eyebrow{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  color:var(--green);
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:11px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  margin-bottom:18px;
+}
+.eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
+.display{
+  font-size:clamp(40px,7vw,104px);
+  line-height:.96;
+  letter-spacing:0;
+  font-weight:850;
+}
+.display .hl,.section-title .hl{color:var(--green)}
+.lead{max-width:720px;color:var(--muted);font-size:clamp(15px,1.4vw,18px);line-height:1.85}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.muted{color:var(--muted)}
+
+.nav{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  height:var(--nav-h);
+  z-index:1000;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 clamp(20px,4.6vw,68px);
+  border-bottom:1px solid transparent;
+  transition:background .45s var(--ease),border-color .45s var(--ease),backdrop-filter .45s var(--ease);
+}
+.nav.is-solid{background:rgba(8,9,15,.82);border-color:var(--line);backdrop-filter:blur(20px)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:850;letter-spacing:.06em}
+.brand-mark{display:flex;align-items:center}
+.brand-mark span{width:14px;height:14px;border-radius:50%;box-shadow:0 0 0 2px var(--bg)}
+.brand-mark span:first-child{background:var(--green)}
+.brand-mark span:last-child{background:var(--blue);margin-left:-5px}
+.nav-links{
+  display:flex;
+  gap:1px;
+  padding:5px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:rgba(2,5,10,.42);
+  box-shadow:0 0 0 1px rgba(255,255,255,.03),0 18px 60px rgba(0,0,0,.22);
+}
+.nav-links a{
+  display:block;
+  padding:7px 12px;
+  border-radius:999px;
+  color:var(--muted);
+  font-size:12px;
+  letter-spacing:.02em;
+  transition:color .22s var(--ease),background .22s var(--ease),transform .22s var(--ease);
+}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a.is-active{color:#071007;background:var(--green);box-shadow:0 0 18px rgba(168,230,61,.28)}
+.nav-meta{font-size:10px;color:var(--muted);letter-spacing:.15em}
+@media (max-width:980px){.nav-links,.nav-meta{display:none}}
+
+.rail{
+  position:fixed;
+  right:22px;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:900;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+.rail button{display:flex;align-items:center;justify-content:flex-end;gap:9px}
+.rail-label{
+  color:var(--muted);
+  font-size:9px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  opacity:0;
+  transform:translateX(7px);
+  transition:opacity .28s var(--ease),transform .28s var(--ease),color .28s;
+}
+.rail-dot{
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:#30384e;
+  transition:background .34s var(--ease),box-shadow .34s var(--ease),transform .34s var(--ease);
+}
+.rail button:hover .rail-label,.rail button.is-active .rail-label{opacity:1;transform:none;color:var(--ink)}
+.rail button.is-active .rail-dot{background:var(--green);box-shadow:0 0 0 5px rgba(168,230,61,.12);transform:scale(1.45)}
+@media (max-width:820px){.rail{display:none}}
+
+.hero{
+  min-height:86vh;
+  display:grid;
+  align-items:end;
+  position:relative;
+  overflow:hidden;
+  padding:calc(var(--nav-h) + 42px) 0 46px;
+}
+.hero-bg-img{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  background-image:url("assets/hero-cover-85.jpg");
+  background-size:cover;
+  background-position:center;
+  opacity:.86;
+  transform:scale(1.02);
+}
+.hero-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:1;opacity:.42}
+.hero-scrim{
+  position:absolute;
+  inset:0;
+  z-index:2;
+  background:
+    linear-gradient(90deg,rgba(2,5,10,.93) 0%,rgba(4,8,15,.62) 46%,rgba(4,8,15,.08) 100%),
+    linear-gradient(180deg,rgba(2,5,10,0) 50%,rgba(2,5,10,.96) 100%);
+}
+.hero-inner{position:relative;z-index:3}
+.hero-topline{display:flex;align-items:center;gap:12px;color:rgba(230,237,247,.62);font-size:11px;letter-spacing:.24em;text-transform:uppercase;margin-bottom:18px;flex-wrap:wrap}
+.hero-topline::before{content:"";width:36px;height:1px;background:var(--green)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(320px,.62fr);gap:clamp(34px,6vw,90px);align-items:end}
+.hero-copy{max-width:920px}
+.hero-sub{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px 18px;
+  align-items:center;
+  margin-top:24px;
+  color:var(--muted);
+  font-size:14px;
+  letter-spacing:.02em;
+}
+.hero-sub span{min-width:0;max-width:100%;overflow-wrap:anywhere}
+.hero-sub b{color:var(--ink);font-weight:600}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:32px}
+.btn{
+  min-height:42px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  border:1px solid var(--line-2);
+  border-radius:999px;
+  padding:10px 16px;
+  color:var(--ink);
+  background:rgba(255,255,255,.04);
+  transition:transform .25s var(--ease),border-color .25s var(--ease),background .25s var(--ease),color .25s var(--ease);
+}
+.btn:hover{transform:translateY(-2px);border-color:rgba(168,230,61,.48);background:rgba(168,230,61,.09)}
+.btn.primary{background:var(--green);color:#071007;border-color:transparent;font-weight:700}
+.btn.primary:hover{background:#b9f756}
+.hero-panel{
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:rgba(5,7,12,.62);
+  backdrop-filter:blur(18px);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+.panel-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:13px 14px;
+  border-bottom:1px solid var(--line);
+  color:var(--muted);
+  font-size:11px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.panel-bars{display:flex;gap:5px}.panel-bars span{width:8px;height:8px;border-radius:50%;background:var(--soft)}.panel-bars span:nth-child(1){background:var(--rose)}.panel-bars span:nth-child(2){background:var(--amber)}.panel-bars span:nth-child(3){background:var(--green)}
+.hero-stat-grid{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--line)}
+.hero-stat{padding:20px;border-right:1px solid var(--line)}
+.hero-stat:last-child{border-right:0}
+.hero-stat strong{display:block;font-size:clamp(28px,4vw,44px);line-height:1;color:var(--ink)}
+.hero-stat span{display:block;margin-top:8px;color:var(--muted);font-size:12px}
+.signal-list{padding:18px 20px 20px;display:grid;gap:14px}
+.signal{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center}
+.signal-dot{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 0 5px rgba(168,230,61,.09)}
+.signal:nth-child(2) .signal-dot{background:var(--blue);box-shadow:0 0 0 5px rgba(79,143,240,.1)}
+.signal:nth-child(3) .signal-dot{background:var(--cyan);box-shadow:0 0 0 5px rgba(55,214,197,.1)}
+.signal-name{font-size:13px;min-width:0;overflow-wrap:anywhere}
+.signal-bar{height:3px;background:rgba(255,255,255,.08);border-radius:99px;overflow:hidden}
+.signal-bar span{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--green),var(--blue));transform-origin:left;animation:growbar 1.3s var(--ease) both}
+.signal:nth-child(2) .signal-bar span{animation-delay:.1s;background:linear-gradient(90deg,var(--blue),var(--cyan))}
+.signal:nth-child(3) .signal-bar span{animation-delay:.2s;background:linear-gradient(90deg,var(--cyan),var(--amber))}
+@keyframes growbar{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.scroll-cue{display:flex;align-items:center;gap:12px;margin-top:34px;color:rgba(230,237,247,.4);font-size:10px;letter-spacing:.24em;text-transform:uppercase}
+.scroll-line{width:54px;height:1px;background:linear-gradient(90deg,var(--green),transparent);animation:pulseLine 2s ease-in-out infinite}
+@keyframes pulseLine{0%,100%{transform:scaleX(.35);opacity:.45}50%{transform:scaleX(1);opacity:1}}
+@media (max-width:980px){
+  .hero{min-height:auto;padding-bottom:64px}
+  .hero-grid{grid-template-columns:1fr}
+  .hero-panel{max-width:560px}
+}
+
+.profile{background:linear-gradient(180deg,rgba(13,16,24,.94),rgba(9,11,17,.92))}
+.profile-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(36px,6vw,82px);align-items:center}
+.section-title{font-size:clamp(34px,5.2vw,76px);line-height:1.03;letter-spacing:0;font-weight:850}
+.fact-list{display:grid;margin-top:30px;border-top:1px solid var(--line)}
+.fact{
+  display:grid;
+  grid-template-columns:150px 1fr;
+  gap:18px;
+  padding:15px 0;
+  border-bottom:1px solid var(--line);
+}
+.fact .k{color:var(--muted);font-size:10px;letter-spacing:.14em;text-transform:uppercase}
+.fact .v{font-size:14px;color:var(--ink)}
+.fact b{color:var(--green);font-weight:600}
+.timeline{
+  position:relative;
+  display:grid;
+  gap:14px;
+  padding-left:24px;
+}
+.timeline::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:1px;background:linear-gradient(var(--green),rgba(255,255,255,.12))}
+.job{position:relative;border:1px solid var(--line);border-radius:8px;background:rgba(255,255,255,.035);padding:18px 18px 17px;overflow:hidden}
+.job::before{content:"";position:absolute;left:-22px;top:24px;width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 0 5px rgba(168,230,61,.09)}
+.job time{display:block;color:var(--green);font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:7px}
+.job h3{font-size:17px;font-weight:700;margin-bottom:6px}
+.job p{color:var(--muted);font-size:13px;line-height:1.65}
+@media (max-width:900px){.profile-grid{grid-template-columns:1fr}.fact{grid-template-columns:120px 1fr}}
+@media (max-width:560px){.wrap{width:min(100% - 32px,1460px)}.fact{grid-template-columns:1fr;gap:7px}.hero-stat-grid{grid-template-columns:1fr}.hero-stat{border-right:0;border-bottom:1px solid var(--line)}.hero-stat:last-child{border-bottom:0}}
+@media (max-width:560px){
+  .hero-topline{font-size:10px;letter-spacing:.18em}
+  .hero-bg-img{background-position:58% center;opacity:.68}
+  .hero-sub{display:grid;gap:8px}
+  .hero-sub span{display:block}
+  .hero-panel{width:100%}
+  .signal{grid-template-columns:auto minmax(0,1fr)}
+  .signal-bar{grid-column:2;width:100%!important;max-width:118px}
+}
+
+.cap-head{display:flex;justify-content:space-between;align-items:end;gap:28px;flex-wrap:wrap;margin-bottom:42px}
+.cap-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.cap{
+  position:relative;
+  min-height:245px;
+  padding:26px 22px;
+  background:#0d1018;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  transition:background .35s var(--ease);
+}
+.cap::before{content:"";position:absolute;left:0;top:0;width:0;height:2px;background:var(--green);transition:width .4s var(--ease)}
+.cap:hover{background:#111a29}.cap:hover::before{width:100%}
+.cap-num{
+  font-weight:900;
+  font-size:48px;
+  line-height:1;
+  color:transparent;
+  -webkit-text-stroke:1px #35405a;
+  transition:-webkit-text-stroke-color .3s var(--ease),transform .3s var(--ease);
+}
+.cap:hover .cap-num{-webkit-text-stroke-color:var(--green);transform:translateY(-2px)}
+.cap h3{margin-top:18px;font-size:18px}
+.cap p{margin-top:10px;color:var(--muted);font-size:13px;line-height:1.75}
+.cap-link{margin-top:auto;color:var(--green);font-size:10px;letter-spacing:.16em;text-transform:uppercase;opacity:0;transform:translateX(-5px);transition:opacity .3s var(--ease),transform .3s var(--ease)}
+.cap:hover .cap-link{opacity:1;transform:none}
+@media (max-width:1120px){.cap-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:620px){.cap-grid{grid-template-columns:1fr}.cap{min-height:210px}}
+
+.cases{padding-top:0}
+.case{
+  position:relative;
+  display:grid;
+  grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+  gap:clamp(30px,5vw,72px);
+  align-items:center;
+  padding:clamp(82px,10vw,140px) 0;
+  border-top:1px solid var(--line);
+}
+.case:first-child{border-top:0}
+.case-kicker{color:var(--green);font-size:11px;letter-spacing:.22em;text-transform:uppercase;margin-bottom:16px}
+.case h2{font-size:clamp(36px,5.2vw,78px);line-height:1;font-weight:900;letter-spacing:0;margin-bottom:18px}
+.case-desc{color:var(--muted);line-height:1.9;font-size:15px;max-width:660px}
+.tag-row{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 28px}
+.tag{display:inline-flex;align-items:center;min-height:28px;padding:5px 11px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:10px;letter-spacing:.08em;text-transform:uppercase;transition:border-color .25s,color .25s,transform .25s}
+.tag:hover{border-color:var(--green);color:var(--green);transform:translateY(-1px)}
+.case-tools{display:flex;gap:10px;flex-wrap:wrap}
+.ghost-btn{
+  border:1px solid var(--line-2);
+  border-radius:999px;
+  min-height:40px;
+  padding:9px 14px;
+  font-size:12px;
+  color:var(--ink);
+  background:rgba(255,255,255,.035);
+  transition:background .25s,border-color .25s,transform .25s;
+}
+.ghost-btn:hover{background:rgba(168,230,61,.08);border-color:rgba(168,230,61,.42);transform:translateY(-2px)}
+.device-stack{position:relative;min-height:520px;perspective:1000px}
+.shot{
+  position:absolute;
+  border:1px solid var(--line-2);
+  border-radius:8px;
+  background:#05070c;
+  box-shadow:var(--shadow);
+  overflow:hidden;
+  transform-style:preserve-3d;
+  transition:transform .6s var(--ease),filter .5s var(--ease);
+}
+.shot:hover{filter:brightness(1.05) saturate(1.08)}
+.shot.large{width:min(86%,720px);right:0;top:24px}
+.shot.small{width:min(42%,310px);left:0;bottom:18px}
+.shot.mid{width:min(55%,430px);left:10%;top:0}
+.shot::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:linear-gradient(135deg,rgba(255,255,255,.08),transparent 46%);
+  opacity:0;
+  transition:opacity .35s var(--ease);
+}
+.shot:hover::after{opacity:1}
+.shot-label{
+  position:absolute;
+  top:12px;
+  left:12px;
+  z-index:3;
+  color:var(--ink);
+  background:rgba(0,0,0,.45);
+  border:1px solid rgba(255,255,255,.16);
+  backdrop-filter:blur(10px);
+  border-radius:999px;
+  padding:6px 10px;
+  font-size:10px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.mock{width:100%;aspect-ratio:16/10;background:#090c14}
+.small .mock{aspect-ratio:9/16}
+.mid .mock{aspect-ratio:4/3}
+.shot-img{width:100%;height:100%;aspect-ratio:16/9;object-fit:cover;background:#090c14}
+.small .shot-img{aspect-ratio:9/16}
+.mid .shot-img{aspect-ratio:4/3}
+.mock svg{width:100%;height:100%}
+.mock .screen-bg{fill:#090c14}
+.mock .grid-line{stroke:rgba(255,255,255,.06);stroke-width:1}
+.mock .text{fill:#dfe7f4}
+.mock .muted-fill{fill:#667089}
+.mock .green{fill:#a8e63d}
+.mock .blue{fill:#4f8ff0}
+.mock .cyan{fill:#37d6c5}
+.mock .rose{fill:#ff6d8d}
+.mock .amber{fill:#ffc857}
+.mock .panel{fill:rgba(255,255,255,.055);stroke:rgba(255,255,255,.12);stroke-width:1}
+.mock .dark-panel{fill:#0f1420}
+.mock .thin{stroke:rgba(255,255,255,.13);stroke-width:1;fill:none}
+.case:nth-child(even) .case-copy{order:2}.case:nth-child(even) .device-stack{order:1}
+@media (max-width:980px){
+  .case{grid-template-columns:1fr}
+  .case:nth-child(even) .case-copy,.case:nth-child(even) .device-stack{order:initial}
+  .device-stack{min-height:440px}
+}
+@media (max-width:620px){.device-stack{min-height:360px}.shot.large{width:94%}.shot.small{width:46%}.shot.mid{width:62%}}
+
+.case-panel{
+  border-top:1px solid var(--line);
+  padding:clamp(76px,9vw,126px) 0;
+  background:linear-gradient(180deg,rgba(13,16,24,.72),rgba(8,9,15,.2));
+}
+.panel-grid{display:grid;grid-template-columns:minmax(260px,.42fr) minmax(0,1fr);gap:clamp(26px,5vw,70px);align-items:start}
+.tabs{
+  display:grid;
+  gap:10px;
+  position:sticky;
+  top:calc(var(--nav-h) + 20px);
+}
+.tab{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:14px;
+  align-items:center;
+  width:100%;
+  padding:16px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:rgba(255,255,255,.035);
+  text-align:left;
+  transition:background .25s,border-color .25s,transform .25s;
+}
+.tab:hover{transform:translateX(3px);border-color:rgba(168,230,61,.35)}
+.tab[aria-selected="true"]{background:rgba(168,230,61,.1);border-color:rgba(168,230,61,.45)}
+.tab-num{color:var(--green);font-size:11px;letter-spacing:.12em}
+.tab strong{display:block;font-size:14px}
+.tab span:last-child{display:block;color:var(--muted);font-size:12px;margin-top:4px}
+.detail{
+  min-height:460px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:rgba(255,255,255,.035);
+  overflow:hidden;
+}
+.detail-visual{min-height:250px;border-bottom:1px solid var(--line);background:#080b12}
+.detail-visual svg{width:100%;height:100%}
+.detail-body{padding:24px}
+.detail-body h3{font-size:clamp(24px,3vw,40px);line-height:1.08;margin-bottom:12px}
+.detail-body p{color:var(--muted);line-height:1.85}
+.detail-points{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+.point{border-top:1px solid var(--line);padding-top:13px}
+.point strong{display:block;color:var(--ink);font-size:14px;margin-bottom:7px}
+.point span{display:block;color:var(--muted);font-size:12px;line-height:1.6}
+@media (max-width:920px){.panel-grid{grid-template-columns:1fr}.tabs{position:static;grid-template-columns:repeat(3,1fr)}}
+@media (max-width:720px){.tabs{grid-template-columns:1fr}.detail-points{grid-template-columns:1fr}}
+
+.contact{
+  padding:clamp(88px,12vw,168px) 0 42px;
+  border-top:1px solid var(--line);
+}
+.contact-row{display:flex;justify-content:space-between;align-items:end;gap:40px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:58px;margin-bottom:26px}
+.contact h2{font-size:clamp(44px,8vw,118px);line-height:1.01;letter-spacing:0;font-weight:900}
+.contact-links{display:flex;flex-direction:column;align-items:flex-end;gap:12px}
+.contact-links a{border-bottom:1px solid var(--line);padding-bottom:4px;font-size:14px;transition:color .25s,border-color .25s,transform .25s}
+.contact-links a:hover{color:var(--green);border-color:var(--green);transform:translateX(-5px)}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;color:var(--muted);font-size:10px;letter-spacing:.13em;text-transform:uppercase}
+#toTop{color:var(--muted);transition:color .25s}#toTop:hover{color:var(--green)}
+@media (max-width:720px){.contact-links{align-items:flex-start}.contact-row{align-items:flex-start}}
+
+.portfolio-strip{
+  padding:clamp(34px,5vw,76px) 0;
+  border-top:1px solid var(--line);
+}
+.portfolio-strip.tight{padding-top:0}
+.page-frame{
+  position:relative;
+  border:1px solid rgba(168,230,61,.2);
+  border-radius:8px;
+  overflow:hidden;
+  background:#05070c;
+  box-shadow:0 24px 90px rgba(0,0,0,.52),0 0 0 1px rgba(79,143,240,.08),0 0 46px rgba(79,143,240,.08);
+}
+.page-frame img{
+  width:100%;
+  height:auto;
+  display:block;
+  filter:contrast(1.06) saturate(1.05) brightness(.98);
+}
+.page-frame + .page-frame{margin-top:18px}
+.page-frame.cover img{aspect-ratio:1920/480;object-fit:cover}
+.image-section{
+  padding:clamp(74px,9vw,128px) 0;
+  border-top:1px solid var(--line);
+}
+.image-section:first-of-type{border-top:0}
+.image-head{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:28px;
+  margin-bottom:28px;
+}
+.image-head h2{
+  font-size:clamp(34px,5vw,72px);
+  line-height:1;
+  font-weight:900;
+}
+.image-head p{
+  max-width:520px;
+  color:var(--muted);
+  line-height:1.75;
+  font-size:14px;
+}
+.portfolio-pages{display:grid;gap:18px}
+.portfolio-page{
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:8px;
+  overflow:hidden;
+  background:#03060b;
+  box-shadow:0 18px 70px rgba(0,0,0,.42),0 0 0 1px rgba(168,230,61,.035);
+  transition:transform .35s var(--ease),border-color .35s var(--ease),filter .35s var(--ease);
+}
+.portfolio-page:hover{
+  transform:translateY(-4px);
+  border-color:rgba(168,230,61,.48);
+  filter:brightness(1.04);
+}
+.portfolio-page img{width:100%;height:auto;display:block;filter:contrast(1.055) saturate(1.045) brightness(.985)}
+.portfolio-page.cover img{aspect-ratio:1920/480;object-fit:cover}
+.directory-panel{
+  padding:clamp(92px,10vw,148px) 0;
+  border-top:1px solid var(--line);
+  background:
+    radial-gradient(circle at 76% 24%,rgba(79,143,240,.18),transparent 28rem),
+    linear-gradient(180deg,rgba(7,12,20,.84),rgba(3,6,11,.38));
+}
+.directory-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+  margin-top:18px;
+}
+.directory-card{
+  min-height:170px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:18px;
+  background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.022));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.045),0 18px 60px rgba(0,0,0,.28);
+  text-align:left;
+  transition:transform .3s var(--ease),border-color .3s var(--ease),background .3s var(--ease);
+}
+.directory-card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(168,230,61,.45);
+  background:rgba(168,230,61,.075);
+}
+.directory-card .num{
+  color:transparent;
+  -webkit-text-stroke:1px rgba(230,237,247,.45);
+  font-size:48px;
+  font-weight:900;
+  line-height:1;
+}
+.directory-card h3{font-size:22px;margin-top:16px}
+.directory-card p{margin-top:10px;color:var(--muted);font-size:13px;line-height:1.65}
+.profile-shot{
+  border:1px solid var(--line-2);
+  border-radius:8px;
+  overflow:hidden;
+  background:#05070c;
+  box-shadow:var(--shadow);
+}
+.profile-shot img{width:100%;height:auto}
+@media (max-width:980px){
+  .image-head{display:grid;align-items:start}
+  .directory-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:620px){
+  .directory-grid{grid-template-columns:1fr}
+  .directory-card{min-height:140px}
+  .page-frame,.portfolio-page{border-radius:6px}
+}
+
+.reveal{opacity:0;transform:translateY(42px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal-left{opacity:0;transform:translateX(-42px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal-right{opacity:0;transform:translateX(42px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.is-in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body class="is-hover">
+<div id="loader" aria-hidden="true" class="is-gone">
+  <div class="loader-box">
+    <div class="loader-name">年亮亮 · UX &amp; AI</div>
+    <div class="loader-track"><div class="loader-fill"></div></div>
+    <div class="loader-num" id="loaderNum">100%</div>
+  </div>
+</div>
+<div id="cursor" aria-hidden="true"><div id="cursor-ring" style="left: 1158.61px; top: 118.062px;"></div><div id="cursor-dot" style="left: 1189px; top: 70px;"></div></div>
+<canvas id="splashCursor" aria-hidden="true" width="3024" height="1656" style="width: 1512px; height: 828px;"></canvas>
+<div id="progress" aria-hidden="true"><span style="width: 2.59896%;"></span></div>
+
+<nav class="nav is-solid" id="nav" aria-label="主导航">
+  <a class="brand hot" href="http://127.0.0.1:8773/max-portfolio-site.html#hero" aria-label="回到封面">
+    <span class="brand-mark"><span></span><span></span></span>
+    <span>年亮亮</span>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a class="hot" href="http://127.0.0.1:8773/max-portfolio-site.html#hero">首页</a>
+    <a class="hot" href="http://127.0.0.1:8773/max-portfolio-site.html#profile">自我介绍</a>
+    <a class="hot is-active" href="http://127.0.0.1:8773/max-portfolio-site.html#influence">个人影响力</a>
+    <a class="hot" href="http://127.0.0.1:8773/max-portfolio-site.html#portfolio-index">作品目录</a>
+    <a class="hot" href="http://127.0.0.1:8773/max-portfolio-site.html#experience">体验设计</a>
+    <a class="hot" href="http://127.0.0.1:8773/max-portfolio-site.html#other-design">其他设计</a>
+    <a class="hot" href="http://127.0.0.1:8773/max-portfolio-site.html#visual-design" style="">视觉设计</a>
+    <a class="hot" href="http://127.0.0.1:8773/max-portfolio-site.html#empowerment">设计赋能</a>
+    <a class="hot" href="http://127.0.0.1:8773/max-portfolio-site.html#contact">联系我</a>
+  </div>
+  <div class="nav-meta mono" id="clock">HKT 20:11:59</div>
+</nav>
+
+<div class="rail" id="rail" aria-label="页面章节">
+  <button class="hot" data-target="hero"><span class="rail-label mono">Home</span><span class="rail-dot"></span></button>
+  <button class="hot" data-target="profile"><span class="rail-label mono">Intro</span><span class="rail-dot"></span></button>
+  <button class="hot is-active" data-target="influence"><span class="rail-label mono">Impact</span><span class="rail-dot"></span></button>
+  <button class="hot" data-target="portfolio-index"><span class="rail-label mono">Contents</span><span class="rail-dot"></span></button>
+  <button class="hot" data-target="experience"><span class="rail-label mono">01 EXP</span><span class="rail-dot"></span></button>
+  <button class="hot" data-target="other-design"><span class="rail-label mono">02 Other</span><span class="rail-dot"></span></button>
+  <button class="hot" data-target="visual-design"><span class="rail-label mono">03 Visual</span><span class="rail-dot"></span></button>
+  <button class="hot" data-target="empowerment"><span class="rail-label mono">04 Enable</span><span class="rail-dot"></span></button>
+  <button class="hot" data-target="contact"><span class="rail-label mono">Contact</span><span class="rail-dot"></span></button>
+</div>
+
+<main>
+  <section class="hero" id="hero" data-section="">
+    <div class="hero-bg-img" aria-hidden="true"></div>
+    <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true" width="3024" height="1424"></canvas>
+    <div class="hero-scrim" aria-hidden="true"></div>
+    <div class="wrap hero-inner">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="hero-topline mono reveal-left is-in">2010-2026 · Portfolio · UX &amp; AI Designer</div>
+          <h1 class="display reveal-left d1 is-in">年亮亮<br><span class="hl">UX &amp; AI</span><br>Designer</h1>
+          <div class="hero-sub reveal-left d2 is-in">
+            <span><b>16 年</b> 产品体验设计</span>
+            <span>B端 / C端 / AI 产品</span>
+            <span>体验设计 · 数字员工 · 视觉设计 · 设计赋能</span>
+          </div>
+          <div class="scroll-cue mono reveal-left d4 is-in"><span class="scroll-line"></span><span>Scroll</span></div>
+        </div>
+        <aside class="hero-panel reveal-right d2 is-in" aria-label="作品集概览">
+          <div class="panel-head"><span>Capability Overview</span><span class="panel-bars"><span></span><span></span><span></span></span></div>
+          <div class="hero-stat-grid">
+            <div class="hero-stat"><strong>16+</strong><span>Years Experience</span></div>
+            <div class="hero-stat"><strong>84</strong><span>Portfolio Pages</span></div>
+          </div>
+          <div class="signal-list">
+            <div class="signal"><span class="signal-dot"></span><span class="signal-name">B/C Product Experience</span><span class="signal-bar" style="width:78px"><span style="width:94%"></span></span></div>
+            <div class="signal"><span class="signal-dot"></span><span class="signal-name">AI Product Strategy</span><span class="signal-bar" style="width:78px"><span style="width:88%"></span></span></div>
+            <div class="signal"><span class="signal-dot"></span><span class="signal-name">Design System &amp; IP</span><span class="signal-bar" style="width:78px"><span style="width:86%"></span></span></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section profile" id="profile" data-section="">
+    <div class="wrap profile-grid">
+      <div class="reveal-left is-in">
+        <div class="eyebrow">Intro · 自我介绍</div>
+        <h2 class="section-title">你好，<br><span class="hl">我是年亮亮</span></h2>
+        <p class="lead" style="margin-top:22px">资深 UX 设计师，2010-2026 持续深耕产品体验、跨端设计、复杂业务系统与设计赋能。</p>
+        <div class="fact-list">
+          <div class="fact"><span class="k mono">Phone</span><span class="v">186 5520 8292</span></div>
+          <div class="fact"><span class="k mono">E-mail</span><span class="v">nll223@163.com</span></div>
+          <div class="fact"><span class="k mono">WeChat</span><span class="v"><b>nll-223</b></span></div>
+        </div>
+      </div>
+      <div class="profile-shot reveal-right d1 hot is-in">
+        <img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-02-resume.jpg" alt="年亮亮自我介绍与工作经历">
+      </div>
+    </div>
+  </section>
+
+  <section class="portfolio-strip" id="influence" data-section="">
+    <div class="wrap">
+      <div class="image-head">
+        <div>
+          <div class="eyebrow">Impact · 个人影响力</div>
+          <h2>跨平台能力与<br><span class="hl">设计推动力</span></h2>
+        </div>
+      </div>
+      <div class="page-frame reveal hot is-in"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-03-impact.jpg" alt="个人影响力与设计能力"></div>
+    </div>
+  </section>
+
+  <section class="directory-panel" id="portfolio-index" data-section="">
+    <div class="wrap">
+      <div class="image-head">
+        <div>
+          <div class="eyebrow">Contents · 作品目录</div>
+          <h2><span class="hl">作品集目录</span></h2>
+        </div>
+      </div>
+      <div class="page-frame reveal hot is-in"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-04-directory.jpg" alt="作品目录：体验设计、其他设计、视觉设计、设计赋能"></div>
+      <div class="directory-grid">
+        <button class="directory-card hot reveal d1" data-jump="experience"><span class="num mono">01</span><h3>体验设计</h3><p>龙湖超A、AI数字化、律所管理系统</p></button>
+        <button class="directory-card hot reveal d2" data-jump="other-design"><span class="num mono">02</span><h3>其他设计</h3><p>直播、钱包、医疗、看板设计、数据大屏</p></button>
+        <button class="directory-card hot reveal d3" data-jump="visual-design"><span class="num mono">03</span><h3>视觉设计</h3><p>龙小益、IP、视觉、海报、AIGC 相关</p></button>
+        <button class="directory-card hot reveal d4" data-jump="empowerment"><span class="num mono">04</span><h3>设计赋能</h3><p>设计系统、设计方法论、设计沉淀、获奖、专利</p></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="image-section" id="experience" data-section="">
+    <div class="wrap">
+      <div class="image-head">
+        <div><div class="eyebrow">01 · Experience Design</div><h2>体验设计</h2></div>
+      </div>
+      <div class="portfolio-pages">
+        <figure class="portfolio-page cover reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/cover-experience.jpg" alt="体验设计封皮"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-06.jpg" alt="体验设计作品页 06"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-07.jpg" alt="体验设计作品页 07"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-08.jpg" alt="体验设计作品页 08"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-09.jpg" alt="体验设计作品页 09"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-10.jpg" alt="体验设计作品页 10"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-11.jpg" alt="体验设计作品页 11"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-12.jpg" alt="体验设计作品页 12"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-13.jpg" alt="体验设计作品页 13"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-14.jpg" alt="体验设计作品页 14"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-15.jpg" alt="体验设计作品页 15"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-16.jpg" alt="体验设计作品页 16"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-17.jpg" alt="体验设计作品页 17"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-18.jpg" alt="体验设计作品页 18"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-19.jpg" alt="体验设计作品页 19"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-20.jpg" alt="体验设计作品页 20"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-21.jpg" alt="体验设计作品页 21"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-22.jpg" alt="体验设计作品页 22"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-23.jpg" alt="体验设计作品页 23"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-24.jpg" alt="体验设计作品页 24"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-25.jpg" alt="体验设计作品页 25"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-26.jpg" alt="体验设计作品页 26"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-27.jpg" alt="体验设计作品页 27"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-28.jpg" alt="体验设计作品页 28"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-29.jpg" alt="体验设计作品页 29"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-30.jpg" alt="体验设计作品页 30"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-31.jpg" alt="体验设计作品页 31"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-32.jpg" alt="体验设计作品页 32"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-33.jpg" alt="体验设计作品页 33"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-34.jpg" alt="体验设计作品页 34"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-35.jpg" alt="体验设计作品页 35"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-36.jpg" alt="体验设计作品页 36"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-37.jpg" alt="体验设计作品页 37"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-38.jpg" alt="体验设计作品页 38"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-39.jpg" alt="体验设计作品页 39"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-40.jpg" alt="体验设计作品页 40"></figure>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="image-section" id="other-design" data-section="">
+    <div class="wrap">
+      <div class="image-head">
+        <div><div class="eyebrow">02 · Other Design</div><h2>其他设计</h2></div>
+      </div>
+      <div class="portfolio-pages">
+        <figure class="portfolio-page cover reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/cover-other.jpg" alt="其他设计封皮"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-42.jpg" alt="其他设计作品页 42"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-43.jpg" alt="其他设计作品页 43"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-44.jpg" alt="其他设计作品页 44"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-45.jpg" alt="其他设计作品页 45"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-46.jpg" alt="其他设计作品页 46"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-47.jpg" alt="其他设计作品页 47"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-48.jpg" alt="其他设计作品页 48"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-49.jpg" alt="其他设计作品页 49"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-50.jpg" alt="其他设计作品页 50"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-51.jpg" alt="其他设计作品页 51"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-52.jpg" alt="其他设计作品页 52"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-53.jpg" alt="其他设计作品页 53"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-54.jpg" alt="其他设计作品页 54"></figure>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="image-section" id="visual-design" data-section="">
+    <div class="wrap">
+      <div class="image-head">
+        <div><div class="eyebrow">03 · Visual Design</div><h2>视觉设计</h2></div>
+      </div>
+      <div class="portfolio-pages">
+        <figure class="portfolio-page cover reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/cover-visual.jpg" alt="视觉设计封皮"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-56.jpg" alt="视觉设计作品页 56"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-57.jpg" alt="视觉设计作品页 57"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-58.jpg" alt="视觉设计作品页 58"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-59.jpg" alt="视觉设计作品页 59"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-60.jpg" alt="视觉设计作品页 60"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-61.jpg" alt="视觉设计作品页 61"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-62.jpg" alt="视觉设计作品页 62"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-63.jpg" alt="视觉设计作品页 63"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-64.jpg" alt="视觉设计作品页 64"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-65.jpg" alt="视觉设计作品页 65"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-66.jpg" alt="视觉设计作品页 66"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-67.jpg" alt="视觉设计作品页 67"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-68.jpg" alt="视觉设计作品页 68"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-69.jpg" alt="视觉设计作品页 69"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-70.jpg" alt="视觉设计作品页 70"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-71.jpg" alt="视觉设计作品页 71"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-72.jpg" alt="视觉设计作品页 72"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-73.jpg" alt="视觉设计作品页 73"></figure>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="image-section" id="empowerment" data-section="">
+    <div class="wrap">
+      <div class="image-head">
+        <div><div class="eyebrow">04 · Design Empowerment</div><h2>设计赋能</h2></div>
+      </div>
+      <div class="portfolio-pages">
+        <figure class="portfolio-page cover reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/cover-empowerment.jpg" alt="设计赋能封皮"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-75.jpg" alt="设计赋能作品页 75"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-76.jpg" alt="设计赋能作品页 76"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-77.jpg" alt="设计赋能作品页 77"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-78.jpg" alt="设计赋能作品页 78"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-79.jpg" alt="设计赋能作品页 79"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-80.jpg" alt="设计赋能作品页 80"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-81.jpg" alt="设计赋能作品页 81"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-82.jpg" alt="设计赋能作品页 82"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-83.jpg" alt="设计赋能作品页 83"></figure>
+        <figure class="portfolio-page reveal hot"><img src="./年亮亮 Portfolio - UX &amp; AI Designer_files/page-84.jpg" alt="设计赋能作品页 84"></figure>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact" data-section="">
+    <div class="wrap">
+      <div class="contact-row">
+        <div class="reveal-left">
+          <div class="eyebrow">Contact · 联系我</div>
+          <h2>期待交流<br><span class="hl">体验设计.</span></h2>
+        </div>
+        <div class="contact-links reveal-right">
+          <a class="hot" href="tel:18655208292">Phone: 186 5520 8292</a>
+          <a class="hot" href="mailto:nll223@163.com">E-mail: nll223@163.com</a>
+          <a class="hot" href="http://127.0.0.1:8773/max-portfolio-site.html#profile">WeChat: nll-223</a>
+        </div>
+      </div>
+      <div class="foot reveal">
+        <div class="brand"><span class="brand-mark"><span></span><span></span></span><span>年亮亮 · UX &amp; AI Designer · 2010 / 2026</span></div>
+        <button class="hot mono" id="toTop">Back to top ↑</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(() => {
+  const $ = (sel, root = document) => root.querySelector(sel);
+  const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+
+  $$("[data-jump]").forEach(btn => btn.addEventListener("click", () => {
+    const target = $("#" + btn.dataset.jump);
+    if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+  }));
+
+  let n = 0;
+  const loaderNum = $("#loaderNum");
+  const timer = setInterval(() => {
+    n = Math.min(n + Math.floor(Math.random() * 13) + 5, 100);
+    loaderNum.textContent = `${n}%`;
+    if (n >= 100) {
+      clearInterval(timer);
+      setTimeout(() => $("#loader").classList.add("is-gone"), 180);
+    }
+  }, 55);
+
+  function clock() {
+    const d = new Date();
+    const h = String(d.getHours()).padStart(2, "0");
+    const m = String(d.getMinutes()).padStart(2, "0");
+    const s = String(d.getSeconds()).padStart(2, "0");
+    $("#clock").textContent = `HKT ${h}:${m}:${s}`;
+    setTimeout(clock, 1000);
+  }
+  clock();
+
+  const nav = $("#nav");
+  const progress = $("#progress span");
+  function onScroll() {
+    const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    progress.style.width = `${window.scrollY / max * 100}%`;
+    nav.classList.toggle("is-solid", window.scrollY > 30);
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  const links = $$("#navLinks a");
+  const railButtons = $$("#rail button");
+  function activate(id) {
+    links.forEach(a => a.classList.toggle("is-active", a.getAttribute("href") === `#${id}`));
+    railButtons.forEach(b => b.classList.toggle("is-active", b.dataset.target === id));
+  }
+  const spy = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) activate(entry.target.id);
+    });
+  }, { rootMargin: "-45% 0px -45% 0px" });
+  $$("[data-section]").forEach(section => spy.observe(section));
+
+  links.forEach(link => link.addEventListener("click", e => {
+    e.preventDefault();
+    const target = $(link.getAttribute("href"));
+    if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+  }));
+  railButtons.forEach(btn => btn.addEventListener("click", () => {
+    const target = $("#" + btn.dataset.target);
+    if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+  }));
+  $("#toTop").addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+  const reveal = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-in");
+        reveal.unobserve(entry.target);
+      }
+    });
+  }, { threshold: .12 });
+  $$(".reveal,.reveal-left,.reveal-right").forEach(el => reveal.observe(el));
+
+  const dot = $("#cursor-dot");
+  const ring = $("#cursor-ring");
+  let mx = window.innerWidth / 2, my = window.innerHeight / 2, rx = mx, ry = my;
+  window.addEventListener("mousemove", e => { mx = e.clientX; my = e.clientY; });
+  function cursorLoop() {
+    rx += (mx - rx) * .12;
+    ry += (my - ry) * .12;
+    dot.style.left = `${mx}px`; dot.style.top = `${my}px`;
+    ring.style.left = `${rx}px`; ring.style.top = `${ry}px`;
+    requestAnimationFrame(cursorLoop);
+  }
+  cursorLoop();
+  $$(".hot").forEach(el => {
+    el.addEventListener("mouseenter", () => document.body.classList.add("is-hover"));
+    el.addEventListener("mouseleave", () => document.body.classList.remove("is-hover"));
+  });
+
+  const splash = $("#splashCursor");
+  const splashCtx = splash.getContext("2d");
+  const splats = [];
+  let lastSplash = 0;
+  function resizeSplash() {
+    const ratio = Math.min(window.devicePixelRatio || 1, 2);
+    splash.width = Math.floor(window.innerWidth * ratio);
+    splash.height = Math.floor(window.innerHeight * ratio);
+    splash.style.width = `${window.innerWidth}px`;
+    splash.style.height = `${window.innerHeight}px`;
+    splashCtx.setTransform(ratio, 0, 0, ratio, 0, 0);
+  }
+  function pushSplat(x, y, force = 1) {
+    const palette = ["168,230,61", "79,143,240", "55,214,197"];
+    splats.push({
+      x,
+      y,
+      vx:(Math.random() - .5) * 1.4 * force,
+      vy:(Math.random() - .5) * 1.4 * force,
+      r:18 + Math.random() * 38 * force,
+      life:1,
+      color:palette[Math.floor(Math.random() * palette.length)]
+    });
+    if (splats.length > 54) splats.splice(0, splats.length - 54);
+  }
+  window.addEventListener("pointermove", e => {
+    const now = performance.now();
+    if (now - lastSplash > 18) {
+      pushSplat(e.clientX, e.clientY, .9);
+      lastSplash = now;
+    }
+  }, { passive:true });
+  window.addEventListener("pointerdown", e => {
+    for (let i = 0; i < 8; i++) pushSplat(e.clientX, e.clientY, 1.45);
+  }, { passive:true });
+  function drawSplash() {
+    splashCtx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    splashCtx.globalCompositeOperation = "lighter";
+    for (let i = splats.length - 1; i >= 0; i--) {
+      const s = splats[i];
+      s.x += s.vx;
+      s.y += s.vy;
+      s.r += 1.6;
+      s.life *= .94;
+      const g = splashCtx.createRadialGradient(s.x, s.y, 0, s.x, s.y, s.r);
+      g.addColorStop(0, `rgba(${s.color},${.34 * s.life})`);
+      g.addColorStop(.44, `rgba(${s.color},${.16 * s.life})`);
+      g.addColorStop(1, `rgba(${s.color},0)`);
+      splashCtx.fillStyle = g;
+      splashCtx.beginPath();
+      splashCtx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      splashCtx.fill();
+      if (s.life < .025) splats.splice(i, 1);
+    }
+    splashCtx.globalCompositeOperation = "source-over";
+    requestAnimationFrame(drawSplash);
+  }
+  window.addEventListener("resize", resizeSplash);
+  resizeSplash();
+  drawSplash();
+
+  links.forEach(a => {
+    a.addEventListener("mousemove", e => {
+      const r = a.getBoundingClientRect();
+      const x = (e.clientX - r.left - r.width / 2) * .22;
+      const y = (e.clientY - r.top - r.height / 2) * .22;
+      a.style.transform = `translate(${x}px,${y}px)`;
+    });
+    a.addEventListener("mouseleave", () => { a.style.transform = ""; });
+  });
+
+  $$(".tilt-area").forEach(area => {
+    area.addEventListener("mousemove", e => {
+      const rect = area.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - .5;
+      const y = (e.clientY - rect.top) / rect.height - .5;
+      $$(".tilt-card", area).forEach((card, index) => {
+        const depth = index ? 5 : 8;
+        card.style.transform = `rotateY(${x * depth}deg) rotateX(${-y * depth}deg) translateZ(${index ? 8 : 14}px)`;
+      });
+    });
+    area.addEventListener("mouseleave", () => {
+      $$(".tilt-card", area).forEach(card => { card.style.transform = ""; });
+    });
+  });
+
+  const canvas = $("#heroCanvas");
+  const ctx = canvas.getContext("2d");
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let particles = [];
+  function resizeCanvas() {
+    const ratio = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = Math.floor(canvas.clientWidth * ratio);
+    canvas.height = Math.floor(canvas.clientHeight * ratio);
+    ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+    const count = Math.max(44, Math.floor(canvas.clientWidth / 20));
+    particles = Array.from({ length: count }, (_, i) => ({
+      x: Math.random() * canvas.clientWidth,
+      y: Math.random() * canvas.clientHeight,
+      vx: (Math.random() - .5) * .34,
+      vy: (Math.random() - .5) * .34,
+      r: 1 + Math.random() * 2.2,
+      color: i % 5 === 0 ? "#a8e63d" : i % 5 === 1 ? "#4f8ff0" : i % 5 === 2 ? "#37d6c5" : "rgba(255,255,255,.7)"
+    }));
+  }
+  function drawCanvas() {
+    ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
+    const w = canvas.clientWidth, h = canvas.clientHeight;
+    ctx.lineWidth = 1;
+    for (let i = 0; i < particles.length; i++) {
+      const p = particles[i];
+      if (!reduce) {
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < -20) p.x = w + 20; if (p.x > w + 20) p.x = -20;
+        if (p.y < -20) p.y = h + 20; if (p.y > h + 20) p.y = -20;
+      }
+      ctx.beginPath();
+      ctx.fillStyle = p.color;
+      ctx.globalAlpha = .62;
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fill();
+      for (let j = i + 1; j < particles.length; j++) {
+        const q = particles[j];
+        const dx = p.x - q.x, dy = p.y - q.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 128) {
+          ctx.globalAlpha = (1 - dist / 128) * .18;
+          ctx.strokeStyle = "#dfe7f4";
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(q.x, q.y);
+          ctx.stroke();
+        }
+      }
+    }
+    ctx.globalAlpha = .55;
+    ctx.strokeStyle = "#a8e63d";
+    ctx.beginPath();
+    ctx.ellipse(w * .77, h * .42, Math.min(w * .2, 230), Math.min(h * .18, 145), -.45, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.globalAlpha = .35;
+    ctx.strokeStyle = "#4f8ff0";
+    ctx.beginPath();
+    ctx.ellipse(w * .77, h * .42, Math.min(w * .29, 330), Math.min(h * .26, 220), .3, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.globalAlpha = 1;
+    requestAnimationFrame(drawCanvas);
+  }
+  window.addEventListener("resize", resizeCanvas);
+  resizeCanvas();
+  drawCanvas();
+})();
+</script>
+
+
+<div id="cocoCutDLinject" style="display: none;"><span id="extVersion">3.60</span></div></body></html>
